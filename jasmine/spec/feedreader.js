@@ -61,6 +61,7 @@ $(function () {
 
     describe('The menu', () => {
 
+        var  body = $('body');
         /* TODO: Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
          * the CSS to determine how we're performing the
@@ -69,7 +70,7 @@ $(function () {
 
         it('Menu shoud to be hidden by default', () => {
 
-            expect($('body').hasClass('menu-hidden')).toBe(true);
+            expect(body.hasClass('menu-hidden')).toBe(true)
 
         });
 
@@ -79,24 +80,19 @@ $(function () {
          * clicked and does it hide when clicked again.
          */
 
+      
+        it('Menu toggles when clicked on menu icon', () => {
+           
+            var menuIcon = $('.menu-icon-link');
+              
 
-        // it('Menu toggles when clicked on menu icon', () => {
+            menuIcon.click(); // Display menu
+            expect(body.hasClass('menu-hidden')).toBe(false);
 
-        //     var menuIcon = $('.menu-icon-link');
+           menuIcon.trigger('click'); // hide menu again
+            expect(body.hasClass('menu-hidden')).toBe(true);
 
-        //     //dispaly menu
-        //     menuIcon.trigger('click');
-        //     expect($('body').hasClass('menu-hidden')).toBe(true);
-
-        //     // menuIcon.trigger('click');
-        //     // expect($('body').hasClass('menu-hidden')).toBeDefined(false)
-
-
-        //     // //hide menu after scond click
-        //     // menuIcon.trigger('click');
-        //     // expect($('body').hasClass('menu-hidden')).toBe(true);
-
-        // });
+         });
 
 
     });
